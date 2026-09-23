@@ -35,4 +35,22 @@ export async function runWakeup() {
         });
     }
     printBannerwithShadow(ascii);
+
+    const mode = await select({
+        message: "Select a mode",
+        options: [
+            { value: "CLI", label: "CLI" },
+            { value: "Telegram", label: "Telegram" }
+        ]
+    });
+
+    if (isCancel(mode)) {
+        console.log("Operation cancelled.");
+        process.exit(0);
+    }
+    if (mode === "CLI") {
+        console.log(chalk.greenBright("StartingCLI mode..."));
+    } else if (mode === "Telegram") {
+        console.log(chalk.greenBright("Starting Telegram mode..."));
+    }   
 }

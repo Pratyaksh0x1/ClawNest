@@ -1,0 +1,7 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/install.sh", "destination": "/public/install.sh" },
+    { "source": "/install.ps1", "destination": "/public/install.ps1" }
+  ]
+}

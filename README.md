@@ -2,7 +2,7 @@
 
 A minimal open-source personal AI agent system inspired by OpenClaw, designed to assist with software development tasks through multiple interaction modes including CLI and Telegram.
 
-![Preview](<WhatsApp Image 2026-09-23 at 10.59.14 PM.jpeg>)
+![!\[Preview\]preview.jpeg](preview.jpeg)
 
 ## 🚀 Features
 

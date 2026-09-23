@@ -2,6 +2,7 @@ import {select,isCancel} from "@clack/prompts";
 import chalk from "chalk";
 import figlet from "figlet";
 import { runCLImode } from "../modes/CLI";
+import { runTelegramMode } from "../modes/telegram";
 
 
 const BANNER_FONT="ANSI Shadow";
@@ -54,6 +55,6 @@ export async function runWakeup() {
         await runCLImode();
     } else if (mode === "Telegram") {
         console.log(chalk.greenBright("Starting Telegram mode..."));
-        // await runTelegramMode();
+          await runTelegramMode();
     } 
 }

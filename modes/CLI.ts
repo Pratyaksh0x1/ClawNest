@@ -1,5 +1,8 @@
 import chalk from "chalk";
 import {select,isCancel} from "@clack/prompts";
+import { runPlanMode } from "./plan/orchestrator";
+import { runAgentMode } from "./agent/orchestrator";
+import { runAskMode } from "./ask/orchestrator";
 
 export async function runCLImode() {
     while(true){
@@ -15,9 +18,15 @@ export async function runCLImode() {
         if (isCancel(mode || mode === "Back")) {
             return;
         }
-        if (mode === "Agent") {console.log(chalk.greenBright("Starting Agent mode..."));}
-        if (mode === "Plan") {console.log(chalk.greenBright("Starting Plan mode..."));}
-        if (mode === "ASK") {console.log(chalk.greenBright("Starting ASK mode..."));}
+        if (mode === "Agent") {
+            await runAgentMode();
+        }
+        if (mode === "Plan") {
+            await runPlanMode();
+        }
+        if (mode === "ASK") {
+            await runAskMode();
+        }
 
         if(mode !=='ASK' && mode !=='Plan' && mode !=='Agent'){
             console.log(chalk.redBright("\n The mode is not implemented yet!"));

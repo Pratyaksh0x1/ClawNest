@@ -1,6 +1,7 @@
 #!/usr/bin/env bun
 
 import {Command} from "commander";
+import { runWakeup } from "./tui/wakeup";
 
 const program = new Command();
 
@@ -14,7 +15,7 @@ program
  .description("Show the banner and show the main menu")
  .action(
     async () => {
-        console.log("Wakeup calling...");
+        await runWakeup();
     }
  );
 

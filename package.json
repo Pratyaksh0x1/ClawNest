@@ -16,6 +16,7 @@
     "@clack/core": "^1.5.1",
     "@clack/prompts": "^1.8.1",
     "@types/node": "^26.6.2",
+    "chalk": "^6.0.0",
     "commander": "^15.0.0",
     "figlet": "^1.11.4"
   }

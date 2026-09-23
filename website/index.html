@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClawNest 🏴‍☠️ - The 1-Line Install AI Agent | One Piece Claymorphism</title>
+  <meta name="description" content="A minimal open-source personal AI agent system inspired by OpenClaw. Install in 1 line and command your crew via CLI and Telegram.">
+  <meta name="keywords" content="ClawNest, OpenClaw, AI Agent, CLI tool, One Piece, Claymorphism, Autonomous Agent">
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="ClawNest - The King of AI Pirates">
+  <meta property="og:description" content="Set sail with ClawNest. Install in 1 line with curl or PowerShell. Multi-modal AI agent with staged approval safety.">
+  <meta property="og:image" content="assets/images/sunny.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/images/strawhat.jpg">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles/claymorphism.css">
+  <link rel="stylesheet" href="styles/animations.css">
+  <link rel="stylesheet" href="styles/parallax.css">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       BOY-COY PARALLAX SCENE CANVAS
+       ======================================================================== -->
+  <div class="parallax-world">
+
+    <!-- Layer 0: Sky & Sun -->
+    <div class="parallax-layer layer-sky">
+      <div class="clay-sun"></div>
+    </div>
+
+    <!-- Layer 1: Floating Clay Clouds -->
+    <div class="parallax-layer layer-clouds">
+      <div class="clay-cloud clay-cloud-1"></div>
+      <div class="clay-cloud clay-cloud-2"></div>
+      <div class="clay-cloud clay-cloud-3"></div>
+    </div>
+
+    <!-- Boy-Coy Style Traveling Thousand Sunny Ship -->
+    <div class="voyage-ship-guide" id="voyageShip">
+      <img src="assets/images/sunny.jpg" alt="Thousand Sunny Sailing Ship" class="voyage-ship-img anim-ship" id="shipVisual">
+    </div>
+
+    <!-- Voyage HUD / Waypoint Compass -->
+    <nav class="voyage-hud" aria-label="Grand Line Waypoints">
+      <a href="#install" class="hud-item active">
+        <span class="hud-dot"></span>
+        <span class="hud-label">Port of Install</span>
+      </a>
+      <a href="#terminal" class="hud-item">
+        <span class="hud-dot"></span>
+        <span class="hud-label">Den Den Mushi TUI</span>
+      </a>
+      <a href="#crew" class="hud-item">
+        <span class="hud-dot"></span>
+        <span class="hud-label">Nakama Crew (Modes)</span>
+      </a>
+      <a href="#security" class="hud-item">
+        <span class="hud-dot"></span>
+        <span class="hud-label">Devil Fruit Guardrails</span>
+      </a>
+      <a href="#docs" class="hud-item">
+        <span class="hud-dot"></span>
+        <span class="hud-label">Documentation</span>
+      </a>
+    </nav>
+
+    <!-- ========================================================================
+         NAVIGATION BAR
+         ======================================================================== -->
+    <header class="header-nav">
+      <nav class="nav-bar">
+        <a href="#install" class="nav-brand">
+          <img src="assets/images/strawhat.jpg" alt="Straw Hat Skull" class="brand-icon">
+          <span>ClawNest</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#install" class="nav-link">1-Line Install</a></li>
+          <li><a href="#terminal" class="nav-link">Live Terminal</a></li>
+          <li><a href="#crew" class="nav-link">Crew Modes</a></li>
+          <li><a href="#security" class="nav-link">Safety</a></li>
+          <li><a href="#docs" class="nav-link">Documentation</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="https://github.com/Pratyaksh0x1/ClawNest" target="_blank" rel="noopener" class="clay-btn clay-btn-yellow" style="padding: 10px 20px; font-size: 0.95rem;">
+            <span>⭐ Star on GitHub</span>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ========================================================================
+         FOREGROUND CONTENT
+         ======================================================================== -->
+    <div class="parallax-content">
+
+      <!-- SECTION 1: HERO - PORT OF 1-LINE INSTALL -->
+      <section id="install" class="section hero-section">
+        <div class="container">
+          
+          <div class="hero-wanted-badge anim-float">
+            <span>☠️</span>
+            <span>WANTED: 3,000,000,000 BERRIES • THE ULTIMATE AI AGENT</span>
+          </div>
+
+          <h1 class="hero-title">
+            SET SAIL WITH <span class="highlight">CLAWNEST</span><br>
+            THE KING OF AI PIRATES
+          </h1>
+
+          <p class="hero-subtitle">
+            A minimal open-source personal AI agent system inspired by OpenClaw. 
+            Manipulate code, plan roadmaps, and conquer tasks through an interactive CLI or remote Telegram bot.
+          </p>
+
+          <!-- THE 1-LINE INSTALL CLAY CARD -->
+          <div class="install-card">
+            <div class="install-header">
+              <div class="install-title">
+                <span style="font-size: 1.5rem;">⚡</span>
+                <span>The 1-Line Install Command</span>
+              </div>
+              
+              <!-- OS Switcher Tabs -->
+              <div class="os-tabs">
+                <button type="button" class="os-tab active" data-os="mac">macOS / Linux</button>
+                <button type="button" class="os-tab" data-os="win">Windows (PowerShell)</button>
+                <button type="button" class="os-tab" data-os="bun">Bun</button>
+                <button type="button" class="os-tab" data-os="npm">npm / npx</button>
+              </div>
+            </div>
+
+            <!-- Inset Command Box with 1-Click Copy -->
+            <div class="command-box">
+              <div class="command-text" id="commandText">
+                <span class="command-prefix">$</span>curl -fsSL https://raw.githubusercontent.com/Pratyaksh0x1/ClawNest/main/website/public/install.sh | bash
+              </div>
+              <button type="button" class="clay-btn clay-btn-yellow copy-btn" id="copyBtn" aria-label="Copy install command">
+                <span>📋 Copy Log Pose</span>
+              </button>
+            </div>
+
+            <!-- Footnote & Tags -->
+            <div class="install-footnote">
+              <div class="feature-pill-row">
+                <span class="feature-pill">⚓ No manual config needed</span>
+                <span class="feature-pill">⚡ Powered by Bun</span>
+                <span class="feature-pill">🛡️ 100% Staged Approvals</span>
+              </div>
+              <div>
+                <span>Run in any terminal and wake up your crew! 🌊</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SECTION 2: INTERACTIVE DEN DEN MUSHI TERMINAL -->
+      <section id="terminal" class="section terminal-section">
+        <div class="container">
+          
+          <div class="section-tag">
+            <span class="clay-pill clay-pill-yellow">⚡ LIVE CLI TERMINAL PREVIEW</span>
+          </div>
+          <h2 class="section-title">WHAT YOU SEE AFTER INSTALLING</h2>
+          <p class="section-subtitle">
+            This is the exact terminal interface ClawNest renders upon running <code>clawnest wakeup</code>. No mockups or hallucinated text.
+          </p>
+
+          <div class="terminal-showcase-container">
+            <!-- Simulated Terminal Window -->
+            <div class="clay-terminal terminal-window">
+              <div class="terminal-topbar">
+                <div class="terminal-dots">
+                  <span class="terminal-dot dot-red"></span>
+                  <span class="terminal-dot dot-yellow"></span>
+                  <span class="terminal-dot dot-green"></span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span style="font-size: 0.85rem;">💻</span>
+                  <span class="terminal-title-text">Windows PowerShell — ClawNest wakeup</span>
+                </div>
+                <span style="font-size: 0.8rem; color: #64748b;">v0.0.1</span>
+              </div>
+              <div class="terminal-body" id="terminalOutput">
+                <!-- Authentic lines injected here -->
+              </div>
+            </div>
+
+            <!-- Mascot & Command Control Cards -->
+            <div class="interactive-cmd-picker">
+              <div class="clay-card mascot-clay-card">
+                <img src="assets/images/denden.jpg" alt="Clay Den Den Mushi Mascot" class="mascot-img anim-float">
+                <h3 style="font-family: 'Fredoka', cursive; font-size: 1.3rem; color: #0f1c3f; margin-bottom: 6px;">Den Den Mushi Terminal</h3>
+                <p style="font-size: 0.9rem; color: #64748b;">Switch between authentic CLI mode sessions below:</p>
+              </div>
+
+              <button type="button" class="cmd-trigger-btn active-mode-btn" data-mode="wakeup">
+                <span>⚡ 1. ClawNest wakeup (Menu)</span>
+                <span style="color: #f59e0b;">▶</span>
+              </button>
+              <button type="button" class="cmd-trigger-btn" data-mode="cli_ask">
+                <span>❓ 2. CLI → ASK Mode</span>
+                <span style="color: #06b6d4;">▶</span>
+              </button>
+              <button type="button" class="cmd-trigger-btn" data-mode="cli_plan">
+                <span>🧭 3. CLI → Plan Mode</span>
+                <span style="color: #3b82f6;">▶</span>
+              </button>
+              <button type="button" class="cmd-trigger-btn" data-mode="cli_agent">
+                <span>🤖 4. CLI → Agent Mode</span>
+                <span style="color: #ef4444;">▶</span>
+              </button>
+              <button type="button" class="cmd-trigger-btn" data-mode="telegram">
+                <span>📱 5. Telegram Mode</span>
+                <span style="color: #10b981;">▶</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SECTION 3: CREW ISLAND - THE 5 MODES -->
+      <section id="crew" class="section crew-section">
+        <div class="container">
+          
+          <div class="section-tag">
+            <span class="clay-pill clay-pill-red">👒 GATHER YOUR NAKAMA</span>
+          </div>
+          <h2 class="section-title">ASSEMBLE YOUR AI CREW</h2>
+          <p class="section-subtitle">
+            Every pirate crew needs specialists. ClawNest splits specialized capabilities into dedicated operational modes.
+          </p>
+
+          <div class="crew-grid">
+            <!-- Mode 1: Agent Mode -->
+            <div class="clay-card crew-card">
+              <div class="crew-avatar-badge" style="background: #fee2e2;">👒</div>
+              <h3 class="crew-name">Luffy</h3>
+              <div class="crew-role">Agent Mode (Autonomous Coder)</div>
+              <p class="crew-desc">
+                Takes high-level coding goals, navigates files, executes shell commands, and prepares staged diffs for your clearance.
+              </p>
+            </div>
+
+            <!-- Mode 2: Plan Mode -->
+            <div class="clay-card crew-card">
+              <div class="crew-avatar-badge" style="background: #fef3c7;">🗺️</div>
+              <h3 class="crew-name">Nami</h3>
+              <div class="crew-role">Plan Mode (Strategic Navigator)</div>
+              <p class="crew-desc">
+                Charts the Grand Line for complex features. Breaks massive tasks into manageable, milestone-oriented execution steps.
+              </p>
+            </div>
+
+            <!-- Mode 3: Ask Mode -->
+            <div class="crew-card clay-card">
+              <div class="crew-avatar-badge" style="background: #e0e7ff;">📜</div>
+              <h3 class="crew-name">Robin</h3>
+              <div class="crew-role">Ask Mode (Codebase Historian)</div>
+              <p class="crew-desc">
+                Uncovers the secrets of your repository. Explains architecture, dependency graphs, and historical design patterns.
+              </p>
+            </div>
+
+            <!-- Mode 4: Telegram Mode -->
+            <div class="crew-card clay-card">
+              <div class="crew-avatar-badge" style="background: #dcfce7;">🐌</div>
+              <h3 class="crew-name">Den Den Mushi</h3>
+              <div class="crew-role">Telegram Mode (Wireless Snail)</div>
+              <p class="crew-desc">
+                Issue commands from your smartphone anywhere in the world. Receive real-time progress pings and approve code diffs on the go.
+              </p>
+            </div>
+
+            <!-- Mode 5: CLI Fast Mode -->
+            <div class="crew-card clay-card">
+              <div class="crew-avatar-badge" style="background: #f1f5f9;">⚔️</div>
+              <h3 class="crew-name">Zoro</h3>
+              <div class="crew-role">CLI Mode (Lightning Swordsman)</div>
+              <p class="crew-desc">
+                Zero friction, pure terminal velocity. Built with Clack prompts and Chalk for developers who love staying in the shell.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SECTION 4: DEVIL FRUIT GUARDRAILS & SECURITY -->
+      <section id="security" class="section security-section">
+        <div class="container">
+          
+          <div class="clay-card security-card">
+            <div>
+              <span class="clay-pill clay-pill-blue" style="margin-bottom: 16px;">🛡️ DEVIL FRUIT GUARDRAILS</span>
+              <h2 style="font-family: 'Bangers', cursive; font-size: 2.8rem; color: #0f1c3f; letter-spacing: 1.5px; margin-bottom: 16px;">
+                NO ROGUE ACTIONS ON YOUR VESSEL
+              </h2>
+              <p style="font-size: 1.1rem; line-height: 1.6; color: #475569;">
+                Unlike wild AI agents that modify code without consent, ClawNest follows strict pirate honor:
+              </p>
+
+              <ul class="security-list">
+                <li class="security-item">
+                  <span class="security-check">✔</span>
+                  <div>
+                    <strong>Staged Changes Only:</strong> All file creations, edits, and deletions are saved into a review staging queue before applying.
+                  </div>
+                </li>
+                <li class="security-item">
+                  <span class="security-check">✔</span>
+                  <div>
+                    <strong>Captain's Approval Gate:</strong> You inspect colorized visual diffs and explicitly hit [Y] before any code is committed.
+                  </div>
+                </li>
+                <li class="security-item">
+                  <span class="security-check">✔</span>
+                  <div>
+                    <strong>Safe Shell Execution:</strong> Potentially destructive commands prompt for verification, keeping your local machine safe.
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div style="text-align: center;">
+              <img src="assets/images/strawhat.jpg" alt="Straw Hat Clay Emblem" style="width: 260px; height: 260px; border-radius: 50%; box-shadow: var(--clay-shadow-raised);" class="anim-float">
+              <div style="margin-top: 20px;">
+                <a href="#install" class="clay-btn clay-btn-red" style="font-size: 1.2rem;">
+                  <span>⚓ Set Sail Now (1-Line Install)</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SECTION 5: DOCUMENTATION & PIRATE LOGBOOK -->
+      <section id="docs" class="section docs-section">
+        <div class="container">
+          
+          <div class="section-tag">
+            <span class="clay-pill clay-pill-yellow">📜 PIRATE LOGBOOK & MANUAL</span>
+          </div>
+          <h2 class="section-title">DOCUMENTATION & QUICKSTART</h2>
+          <p class="section-subtitle">
+            Everything you need to configure your vessel, setup API credentials, and navigate ClawNest like a veteran pirate captain.
+          </p>
+
+          <div class="docs-card">
+            <!-- Documentation Navigation Tabs -->
+            <div class="doc-nav-tabs">
+              <button type="button" class="doc-nav-btn active" data-tab="tab-quickstart">🚀 Quickstart</button>
+              <button type="button" class="doc-nav-btn" data-tab="tab-env">🔑 Environment Keys (.env)</button>
+              <button type="button" class="doc-nav-btn" data-tab="tab-commands">🧭 Commands & Modes</button>
+              <button type="button" class="doc-nav-btn" data-tab="tab-troubleshoot">💡 Troubleshooting</button>
+            </div>
+
+            <!-- Tab 1: Quickstart -->
+            <div class="doc-pane active" id="tab-quickstart">
+              <div class="doc-step-item">
+                <div class="doc-step-num">1</div>
+                <div>
+                  <h3 style="font-family: 'Fredoka', cursive; font-size: 1.3rem; color: #0f1c3f; margin-bottom: 6px;">Run the 1-Line Install Command</h3>
+                  <p style="color: #475569; margin-bottom: 8px;">Run this in PowerShell (Windows) or Terminal (macOS/Linux). It automatically prepares Bun and sets up the <code>clawnest</code> global command:</p>
+                  <div class="doc-code-block">
+                    # Windows PowerShell:<br>
+                    irm https://raw.githubusercontent.com/Pratyaksh0x1/ClawNest/main/website/public/install.ps1 | iex<br><br>
+                    # macOS / Linux:<br>
+                    curl -fsSL https://raw.githubusercontent.com/Pratyaksh0x1/ClawNest/main/website/public/install.sh | bash
+                  </div>
+                </div>
+              </div>
+
+              <div class="doc-step-item">
+                <div class="doc-step-num">2</div>
+                <div>
+                  <h3 style="font-family: 'Fredoka', cursive; font-size: 1.3rem; color: #0f1c3f; margin-bottom: 6px;">Configure Your API Keys</h3>
+                  <p style="color: #475569; margin-bottom: 8px;">Navigate to your ClawNest directory (or current workspace) and copy the example environment file:</p>
+                  <div class="doc-code-block">
+                    cp .env.example .env
+                  </div>
+                  <p style="color: #475569;">Add your free OpenRouter API key so the AI models can generate plans and write code for you.</p>
+                </div>
+              </div>
+
+              <div class="doc-step-item">
+                <div class="doc-step-num">3</div>
+                <div>
+                  <h3 style="font-family: 'Fredoka', cursive; font-size: 1.3rem; color: #0f1c3f; margin-bottom: 6px;">Wake Up Your Crew</h3>
+                  <p style="color: #475569; margin-bottom: 8px;">Open any terminal in your project workspace and run:</p>
+                  <div class="doc-code-block" style="color: #fbbf24;">
+                    clawnest wakeup
+                  </div>
+                  <p style="color: #475569;">Select <strong>CLI</strong> to start chatting with Agent, Plan, or Ask mode!</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab 2: Environment Keys -->
+            <div class="doc-pane" id="tab-env">
+              <h3 style="font-family: 'Fredoka', cursive; font-size: 1.4rem; color: #0f1c3f; margin-bottom: 12px;">Environment Variables Reference</h3>
+              <p style="color: #475569; line-height: 1.6; margin-bottom: 16px;">
+                ClawNest reads configuration from a <code>.env</code> file in the project root or user home directory.
+              </p>
+
+              <div class="doc-code-block">
+                # Required for AI Agent, Plan, and Ask modes:<br>
+                OPENROUTER_API_KEY="sk-or-v1-your-key-here"<br><br>
+                # Optional: specify your preferred OpenRouter model (defaults to openrouter/free):<br>
+                OPENROUTER_DEFAULT_MODEL="meta-llama/llama-3.3-70b-instruct:free"<br><br>
+                # Optional: Telegram bot token from @BotFather (for Telegram mode):<br>
+                TELEGRAM_BOT_TOKEN="123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ"<br><br>
+                # Optional: Firecrawl key for live web search and scraping in Plan mode:<br>
+                FIRECRAWL_API_KEY="fc-your-key-here"
+              </div>
+
+              <div style="background: #fefce8; border-left: 4px solid #f59e0b; padding: 14px 18px; border-radius: 12px; margin-top: 16px; color: #78350f;">
+                <strong>💡 Tip:</strong> You can get a free OpenRouter key from <a href="https://openrouter.ai" target="_blank" rel="noopener" style="color: #d97706; text-decoration: underline;">openrouter.ai</a> to access dozens of free models!
+              </div>
+            </div>
+
+            <!-- Tab 3: Commands & Modes -->
+            <div class="doc-pane" id="tab-commands">
+              <h3 style="font-family: 'Fredoka', cursive; font-size: 1.4rem; color: #0f1c3f; margin-bottom: 16px;">Operational Commands</h3>
+              
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
+                <div style="background: #f8fafc; padding: 20px; border-radius: 18px; border: 1.5px solid #e2e8f0;">
+                  <h4 style="font-family: 'Fredoka', cursive; color: #0f1c3f; margin-bottom: 8px;">clawnest wakeup</h4>
+                  <p style="font-size: 0.95rem; color: #64748b;">Displays the ANSI Shadow banner and launches the interactive TUI mode picker.</p>
+                </div>
+
+                <div style="background: #f8fafc; padding: 20px; border-radius: 18px; border: 1.5px solid #e2e8f0;">
+                  <h4 style="font-family: 'Fredoka', cursive; color: #ef4444; margin-bottom: 8px;">Agent Mode</h4>
+                  <p style="font-size: 0.95rem; color: #64748b;">Autonomous code modification. Inspects files, creates diffs, and waits for your confirmation before touching code.</p>
+                </div>
+
+                <div style="background: #f8fafc; padding: 20px; border-radius: 18px; border: 1.5px solid #e2e8f0;">
+                  <h4 style="font-family: 'Fredoka', cursive; color: #3b82f6; margin-bottom: 8px;">Plan Mode</h4>
+                  <p style="font-size: 0.95rem; color: #64748b;">Researches codebase context and web documentation to generate phased, milestone-driven technical roadmaps in <code>plan.md</code>.</p>
+                </div>
+
+                <div style="background: #f8fafc; padding: 20px; border-radius: 18px; border: 1.5px solid #e2e8f0;">
+                  <h4 style="font-family: 'Fredoka', cursive; color: #10b981; margin-bottom: 8px;">Telegram Mode</h4>
+                  <p style="font-size: 0.95rem; color: #64748b;">Pairs with a Telegram bot so you can monitor agent progress and approve staged diffs right from your smartphone.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab 4: Troubleshooting -->
+            <div class="doc-pane" id="tab-troubleshoot">
+              <h3 style="font-family: 'Fredoka', cursive; font-size: 1.4rem; color: #0f1c3f; margin-bottom: 16px;">Frequently Asked Questions</h3>
+
+              <div style="margin-bottom: 20px;">
+                <h4 style="font-family: 'Fredoka', cursive; font-size: 1.15rem; color: #0f1c3f; margin-bottom: 6px;">Q: Windows PowerShell says "running scripts is disabled"?</h4>
+                <p style="color: #475569; margin-bottom: 8px;">Run this command in PowerShell to temporarily allow install scripts for your current session:</p>
+                <div class="doc-code-block">
+                  Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+                </div>
+              </div>
+
+              <div style="margin-bottom: 20px;">
+                <h4 style="font-family: 'Fredoka', cursive; font-size: 1.15rem; color: #0f1c3f; margin-bottom: 6px;">Q: Command 'clawnest' is not recognized after install?</h4>
+                <p style="color: #475569;">Restart your terminal window so the updated user PATH takes effect, or ensure <code>$HOME\.local\bin</code> (or <code>~/.bun/bin</code>) is in your environment PATH.</p>
+              </div>
+
+              <div>
+                <h4 style="font-family: 'Fredoka', cursive; font-size: 1.15rem; color: #0f1c3f; margin-bottom: 6px;">Q: Is Git required?</h4>
+                <p style="color: #475569;">Yes! The installer uses Git to fetch the latest ClawNest logbook and tools from GitHub. Download Git from <a href="https://git-scm.com" target="_blank" rel="noopener" style="color: #0284c7; text-decoration: underline;">git-scm.com</a> if you don't have it installed.</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="site-footer">
+        <div class="container footer-content">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <img src="assets/images/strawhat.jpg" alt="Skull" style="width: 30px; height: 30px; border-radius: 50%;">
+            <span style="font-family: 'Bangers', cursive; font-size: 1.4rem; color: #f8fafc; letter-spacing: 1px;">ClawNest</span>
+          </div>
+
+          <p style="max-width: 500px; color: #94a3b8; font-size: 0.95rem;">
+            Inspired by OpenClaw. Built for developers exploring the frontier of autonomous AI agents.
+          </p>
+
+          <ul class="footer-links">
+            <li><a href="#install" class="footer-link">Install</a></li>
+            <li><a href="#terminal" class="footer-link">Simulator</a></li>
+            <li><a href="#crew" class="footer-link">Modes</a></li>
+            <li><a href="https://github.com/Pratyaksh0x1/ClawNest" target="_blank" rel="noopener" class="footer-link">GitHub Repository</a></li>
+          </ul>
+
+          <div class="footer-copy">
+            Crafted with ❤️ by <a href="https://github.com/Pratyaksh0x1" target="_blank" rel="noopener" style="color: #fbbf24; text-decoration: none; font-weight: 700;">Pratyaksh Tomar</a>, and the Will of D. 🏴‍☠️
+          </div>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification element -->
+  <div id="clayToast" class="clay-toast">
+    <span>🏴‍☠️</span>
+    <span id="toastMsg">Copied to Log Pose, Captain!</span>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

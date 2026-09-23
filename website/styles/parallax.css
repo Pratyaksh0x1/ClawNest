@@ -1,0 +1,267 @@
+/* ==========================================================================
+   BOY-COY STYLE MULTI-LAYER PARALLAX SCROLLING ENGINE
+   Multi-speed scene layers, voyage route, dynamic ship traveler & waypoints
+   ========================================================================== */
+
+/* Overall Parallax World Container */
+.parallax-world {
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+  background: linear-gradient(180deg, #cbe5ff 0%, #90c2ff 25%, #60a5fa 55%, #1e3a8a 85%, #090d16 100%);
+  min-height: 100vh;
+}
+
+/* Fixed Multi-Layer Canvas for Background Parallax */
+.parallax-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Layer 0: Sky & Giant Clay Sun */
+.layer-sky {
+  z-index: 1;
+}
+
+.clay-sun {
+  position: absolute;
+  top: 60px;
+  right: 12%;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, #fef08a 0%, #f59e0b 80%, #d97706 100%);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 60px rgba(251, 191, 36, 0.6),
+    inset 4px 4px 10px rgba(255, 255, 255, 0.9),
+    inset -6px -6px 12px rgba(180, 83, 9, 0.4);
+  filter: drop-shadow(0 0 35px rgba(251, 191, 36, 0.5));
+  will-change: transform;
+}
+
+/* Layer 1: Floating Clay Clouds */
+.layer-clouds {
+  z-index: 2;
+  will-change: transform;
+}
+
+.clay-cloud {
+  position: absolute;
+  background: #ffffff;
+  border-radius: 999px;
+  box-shadow: 
+    8px 12px 24px rgba(15, 28, 63, 0.1),
+    inset 4px 4px 8px rgba(255, 255, 255, 0.95),
+    inset -4px -4px 8px rgba(147, 197, 253, 0.3);
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.04));
+  opacity: 0.92;
+}
+
+.clay-cloud::before, .clay-cloud::after {
+  content: '';
+  position: absolute;
+  background: inherit;
+  border-radius: 50%;
+  box-shadow: inherit;
+}
+
+.clay-cloud-1 {
+  width: 220px;
+  height: 70px;
+  top: 15%;
+  left: 6%;
+}
+.clay-cloud-1::before {
+  width: 90px;
+  height: 90px;
+  top: -45px;
+  left: 35px;
+}
+.clay-cloud-1::after {
+  width: 70px;
+  height: 70px;
+  top: -30px;
+  left: 105px;
+}
+
+.clay-cloud-2 {
+  width: 260px;
+  height: 80px;
+  top: 38%;
+  right: 8%;
+}
+.clay-cloud-2::before {
+  width: 110px;
+  height: 110px;
+  top: -55px;
+  left: 45px;
+}
+.clay-cloud-2::after {
+  width: 80px;
+  height: 80px;
+  top: -35px;
+  left: 135px;
+}
+
+.clay-cloud-3 {
+  width: 180px;
+  height: 60px;
+  top: 65%;
+  left: 12%;
+}
+.clay-cloud-3::before {
+  width: 80px;
+  height: 80px;
+  top: -40px;
+  left: 30px;
+}
+.clay-cloud-3::after {
+  width: 60px;
+  height: 60px;
+  top: -25px;
+  left: 85px;
+}
+
+/* Layer 2: Voyage Path & The Floating Pirate Ship (Boy-Coy Signature) */
+.voyage-ship-guide {
+  position: fixed;
+  top: 50%;
+  right: calc(50% - 660px);
+  width: 180px;
+  height: 180px;
+  z-index: 20;
+  pointer-events: none;
+  transform: translate3d(0, -50%, 0);
+  transition: transform 0.15s cubic-bezier(0.2, 0, 0, 1), opacity 0.3s ease;
+  will-change: transform;
+}
+
+@media (max-width: 1380px) {
+  .voyage-ship-guide {
+    right: 20px;
+    width: 130px;
+    height: 130px;
+    opacity: 0.88;
+  }
+}
+
+@media (max-width: 900px) {
+  .voyage-ship-guide {
+    display: none; /* Keep mobile clean and focused */
+  }
+}
+
+.voyage-ship-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 30px rgba(15, 28, 63, 0.45));
+  animation: shipVoyageBob 3s ease-in-out infinite;
+}
+
+/* Floating Voyage Trail / Log Pose Waypoint HUD */
+.voyage-hud {
+  position: fixed;
+  left: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (max-width: 1100px) {
+  .voyage-hud {
+    display: none;
+  }
+}
+
+.hud-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  cursor: pointer;
+  group: relative;
+}
+
+.hud-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hud-item:hover .hud-dot,
+.hud-item.active .hud-dot {
+  transform: scale(1.6);
+  background: var(--clay-strawhat-yellow);
+  box-shadow: 0 0 16px rgba(251, 191, 36, 0.9), inset 2px 2px 4px #fff;
+}
+
+.hud-label {
+  background: #ffffff;
+  padding: 4px 12px;
+  border-radius: 99px;
+  font-family: 'Fredoka', cursive, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  box-shadow: var(--clay-shadow-soft);
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.25s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.hud-item:hover .hud-label,
+.hud-item.active .hud-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Floating Interactive Collectibles (Devil Fruits & Berries) */
+.parallax-floating-prop {
+  position: absolute;
+  z-index: 10;
+  pointer-events: auto;
+  cursor: grab;
+  will-change: transform;
+}
+
+.prop-berry {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fef08a, #f59e0b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bangers', cursive;
+  font-size: 2.2rem;
+  color: #78350f;
+  box-shadow: var(--clay-shadow-raised);
+  border: 3px solid #fff;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.prop-berry:hover {
+  transform: scale(1.25) rotate(15deg);
+}
+
+/* Layer 3: Foreground Content Sections */
+.parallax-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}

@@ -1,0 +1,225 @@
+/* ==========================================================================
+   CLAYMORPHISM DESIGN SYSTEM - CLAWNEST (ONE PIECE ANIME THEME)
+   Tactile 3D volume, double-inset highlights, pillowy shadows & squishy feel
+   ========================================================================== */
+
+:root {
+  /* Color Palette - Vibrant Anime Clay */
+  --clay-ocean-deep: #0f1c3f;
+  --clay-ocean-surface: #1e3a8a;
+  --clay-sky: #e0f2fe;
+  --clay-sky-soft: #f0f9ff;
+  
+  --clay-strawhat-yellow: #fbbf24;
+  --clay-strawhat-dark: #d97706;
+  --clay-strawhat-light: #fef08a;
+
+  --clay-crimson-red: #ef4444;
+  --clay-crimson-dark: #b91c1c;
+  --clay-crimson-light: #fca5a5;
+
+  --clay-marine-blue: #0284c7;
+  --clay-marine-dark: #0369a1;
+  --clay-marine-light: #38bdf8;
+
+  --clay-gear5-purple: #8b5cf6;
+  --clay-gear5-dark: #6d28d9;
+  --clay-gear5-light: #c4b5fd;
+
+  --clay-foam-white: #ffffff;
+  --clay-dough-cream: #fefce8;
+  --clay-card-bg: #f8fafc;
+  --clay-terminal-bg: #090d16;
+
+  /* Clay Shadow Tokens */
+  --clay-shadow-soft: 
+    14px 18px 30px rgba(15, 28, 63, 0.16),
+    -8px -8px 20px rgba(255, 255, 255, 0.9),
+    inset 4px 4px 8px rgba(255, 255, 255, 0.7),
+    inset -4px -4px 8px rgba(15, 28, 63, 0.1);
+
+  --clay-shadow-raised: 
+    18px 24px 38px rgba(15, 28, 63, 0.2),
+    -10px -10px 24px rgba(255, 255, 255, 0.95),
+    inset 5px 5px 10px rgba(255, 255, 255, 0.8),
+    inset -6px -6px 12px rgba(15, 28, 63, 0.15);
+
+  --clay-shadow-sunken: 
+    inset 6px 6px 12px rgba(15, 28, 63, 0.25),
+    inset -6px -6px 12px rgba(255, 255, 255, 0.9),
+    2px 2px 8px rgba(0, 0, 0, 0.05);
+
+  --clay-shadow-btn-yellow: 
+    0 10px 20px rgba(217, 119, 6, 0.35),
+    -4px -4px 12px rgba(255, 255, 255, 0.9),
+    inset 3px 3px 6px rgba(255, 255, 255, 0.75),
+    inset -4px -4px 8px rgba(180, 83, 9, 0.5);
+
+  --clay-shadow-btn-red: 
+    0 10px 20px rgba(185, 28, 28, 0.35),
+    -4px -4px 12px rgba(255, 255, 255, 0.9),
+    inset 3px 3px 6px rgba(255, 255, 255, 0.75),
+    inset -4px -4px 8px rgba(153, 27, 27, 0.5);
+
+  --clay-shadow-btn-blue: 
+    0 10px 20px rgba(2, 132, 199, 0.35),
+    -4px -4px 12px rgba(255, 255, 255, 0.9),
+    inset 3px 3px 6px rgba(255, 255, 255, 0.75),
+    inset -4px -4px 8px rgba(3, 105, 161, 0.5);
+
+  --clay-radius-pill: 9999px;
+  --clay-radius-card: 32px;
+  --clay-radius-subtle: 20px;
+}
+
+/* Clay Cards */
+.clay-card {
+  background: var(--clay-card-bg);
+  border-radius: var(--clay-radius-card);
+  box-shadow: var(--clay-shadow-soft);
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.28s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.clay-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: var(--clay-shadow-raised);
+}
+
+/* Clay Pill Badges */
+.clay-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: var(--clay-radius-pill);
+  font-family: 'Fredoka', cursive, sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  border: 2.5px solid rgba(255, 255, 255, 0.8);
+}
+
+.clay-pill-yellow {
+  background: linear-gradient(135deg, var(--clay-strawhat-light), var(--clay-strawhat-yellow));
+  color: #78350f;
+  box-shadow: var(--clay-shadow-btn-yellow);
+}
+
+.clay-pill-red {
+  background: linear-gradient(135deg, var(--clay-crimson-light), var(--clay-crimson-red));
+  color: #fff;
+  box-shadow: var(--clay-shadow-btn-red);
+}
+
+.clay-pill-blue {
+  background: linear-gradient(135deg, var(--clay-marine-light), var(--clay-marine-blue));
+  color: #fff;
+  box-shadow: var(--clay-shadow-btn-blue);
+}
+
+.clay-pill-white {
+  background: #ffffff;
+  color: #1e293b;
+  box-shadow: var(--clay-shadow-soft);
+}
+
+/* Squishy Tactile Clay Buttons */
+.clay-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: var(--clay-radius-pill);
+  font-family: 'Fredoka', cursive, sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border: 3px solid rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+  text-decoration: none;
+}
+
+.clay-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+}
+
+.clay-btn:active {
+  transform: translateY(2px) scale(0.97);
+}
+
+.clay-btn-yellow {
+  background: linear-gradient(145deg, #fef08a, var(--clay-strawhat-yellow));
+  color: #78350f;
+  box-shadow: var(--clay-shadow-btn-yellow);
+}
+.clay-btn-yellow:active {
+  box-shadow: inset 3px 3px 6px rgba(180, 83, 9, 0.6), inset -3px -3px 6px rgba(255, 255, 255, 0.4);
+}
+
+.clay-btn-red {
+  background: linear-gradient(145deg, #f87171, var(--clay-crimson-red));
+  color: #ffffff;
+  box-shadow: var(--clay-shadow-btn-red);
+}
+.clay-btn-red:active {
+  box-shadow: inset 3px 3px 6px rgba(153, 27, 27, 0.6), inset -3px -3px 6px rgba(255, 255, 255, 0.4);
+}
+
+.clay-btn-blue {
+  background: linear-gradient(145deg, #38bdf8, var(--clay-marine-blue));
+  color: #ffffff;
+  box-shadow: var(--clay-shadow-btn-blue);
+}
+.clay-btn-blue:active {
+  box-shadow: inset 3px 3px 6px rgba(3, 105, 161, 0.6), inset -3px -3px 6px rgba(255, 255, 255, 0.4);
+}
+
+/* Clay Inset / Sunken Elements (Code box, Input fields) */
+.clay-sunken {
+  background: #f1f5f9;
+  border-radius: var(--clay-radius-subtle);
+  box-shadow: var(--clay-shadow-sunken);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+/* One Piece Clay Wanted Poster Card */
+.clay-wanted-poster {
+  background: #fefce8;
+  border: 8px solid #fed7aa;
+  border-radius: 28px;
+  box-shadow: 
+    16px 20px 36px rgba(120, 53, 15, 0.22),
+    -8px -8px 20px rgba(255, 255, 255, 0.9),
+    inset 4px 4px 8px rgba(255, 255, 255, 0.8),
+    inset -5px -5px 10px rgba(180, 83, 9, 0.15);
+  position: relative;
+  text-align: center;
+}
+
+.clay-wanted-header {
+  font-family: 'Bangers', cursive;
+  font-size: 2.8rem;
+  letter-spacing: 4px;
+  color: #78350f;
+  margin: 0;
+  text-shadow: 2px 2px 0px #fde68a;
+}
+
+/* Clay Terminal Window */
+.clay-terminal {
+  background: var(--clay-terminal-bg);
+  border-radius: 28px;
+  border: 4px solid #334155;
+  box-shadow: 
+    20px 28px 48px rgba(0, 0, 0, 0.35),
+    -8px -8px 20px rgba(255, 255, 255, 0.3),
+    inset 3px 3px 6px rgba(255, 255, 255, 0.15),
+    inset -3px -3px 6px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  color: #f8fafc;
+}

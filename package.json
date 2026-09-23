@@ -1,10 +1,18 @@
 {
-  "name": "ClawNest",
+  "name": "clawnest-ai",
+  "version": "0.0.1",
+  "description": "A minimal open-source personal AI agent system inspired by OpenClaw",
+  "author": "Pratyaksh Tomar",
+  "license": "MIT",
   "module": "index.ts",
   "type": "module",
-  "private": true,
+  "private": false,
   "bin": {
-    "ClawNest": "./index.ts"
+    "clawnest": "./index.ts",
+    "clawnest-ai": "./index.ts"
+  },
+  "scripts": {
+    "web": "bun run website/server.ts"
   },
   "devDependencies": {
     "@types/bun": "^1.4.2",
